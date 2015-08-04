@@ -25,3 +25,7 @@ depth (Node _ t1 t2) = 1 + max (depth t1) (depth t2)
 smallest :: Tree Int -> Int
 smallest Null = maxBound :: Int
 smallest (Node a t1 t2) = min a (min (smallest t1) (smallest t2))
+
+nodeCount :: Tree a -> Int
+nodeCount Null = 0
+nodeCount (Node _ t1 t2) = 1 + nodeCount t1 + nodeCount t2
