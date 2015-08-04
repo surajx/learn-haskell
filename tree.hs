@@ -29,3 +29,12 @@ smallest (Node a t1 t2) = min a (min (smallest t1) (smallest t2))
 nodeCount :: Tree a -> Int
 nodeCount Null = 0
 nodeCount (Node _ t1 t2) = 1 + nodeCount t1 + nodeCount t2
+
+searchTree :: (Integral a) => Tree a -> a -> Bool
+searchTree Null _ = False
+searchTree (Node a t1 t2)  s
+  | a==s = True
+  | searchTree t1 s = True
+  | searchTree t2 s = True
+  | otherwise       = False
+
