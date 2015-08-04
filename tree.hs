@@ -3,6 +3,9 @@ data Tree a = Null | Node a (Tree a) (Tree a) deriving Show
 aTree :: Tree Float
 aTree = Node 2 (Node 3 Null Null) (Node 4.5 Null Null)
 
+bigTree :: Tree Int
+bigTree = Node 23 ( Node 13 ( Node 5 Null ( Node 6 Null Null )) ( Node 16 Null Null )) ( Node 42 ( Node 31 Null Null ) ( Node 68 Null Null ))
+
 flatten :: Tree a -> [a]
 flatten Null = []
 flatten (Node a t1 t2) = flatten t1 ++ [a] ++ flatten t2
