@@ -41,4 +41,3 @@ searchTree (Node a t1 t2)  s
 evenNodes :: Tree Int -> Int
 evenNodes Null = 0
 evenNodes a = length [x | x<-flatten a, even x]
-
