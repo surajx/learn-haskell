@@ -108,4 +108,11 @@ cntPredicateMatch (Node x t1 t2) f = if f x then
     1 + cntPredicateMatch t1 f + cntPredicateMatch t2 f
     else cntPredicateMatch t1 f + cntPredicateMatch t2 f
 
+flatten :: Tree a-> [a]
+flatten Null = []
+flatten t = flatten' [] t
+
+flatten' :: [a] -> Tree a -> [a]
+flatten' acc Null = acc
+flatten' acc (Node x t1 t2) = flatten' (flatten' [] t1 ++ x:acc) t2
 
